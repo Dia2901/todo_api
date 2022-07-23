@@ -1,0 +1,97 @@
+To make API calls :
+-------------------------------------------------------------------------------------------
+1. Add task
+curl http://localhost:8000/tasks/user \
+    --include \
+    --header "user: USERNAME" \ 
+    --request "POST" \
+    --data '{"desc": "TASK_DESCRIPTION","status": true/false}'
+
+Eg-
+curl http://localhost:8000/tasks/user \
+    --include \
+    --header "user: diya" \ 
+    --request "POST" \
+    --data '{"desc": "Call Vani","status": false}'
+
+
+    curl http://localhost:8000/tasks/user \
+    --include \
+    --header "Content-Type: application/json" \
+    --header "User: diya" \
+    --request "POST" \
+    --data '{"desc": "4cgvsghjv","status": false}'
+
+-------------------------------------------------------------------------------------------
+
+2. Delete task
+curl http://localhost:8000/tasks/user/TASK_ID \
+    --include \
+    --header "user: USERNAME" \
+    --request "DELETE"
+
+Eg-
+curl http://localhost:8000/tasks/user/17 \
+    --include \
+    --header "user: anant" \
+    --request "DELETE"
+
+-------------------------------------------------------------------------------------------
+
+3. Get all tasks (only accessible to admin)
+curl http://localhost:8000/tasks/all \
+    --include \
+    --header "user: admin" \
+    --request "GET"
+
+-------------------------------------------------------------------------------------------
+
+4. Get all tasks of a user
+curl http://localhost:8000/tasks/user \
+    --include \
+    --header "user: USERNAME" \
+    --request "GET"
+Eg- 
+curl http://localhost:8000/tasks/user \
+    --include \
+    --header "user: diya" \
+    --request "GET"
+
+-------------------------------------------------------------------------------------------
+
+5. Get task by id & username
+% curl http://localhost:8000/tasks/user/TASK_ID \
+    --include \
+    --header "user: USERNAME" \
+    --request "GET"
+
+Eg-
+    % curl http://localhost:8000/tasks/user/1 \
+    --include \
+    --header "user: diya" \
+    --request "GET"
+
+-------------------------------------------------------------------------------------------
+6. Update task
+curl http://localhost:8000/tasks/user/TASK_ID \
+    --include \
+    --header "user: USERNAME" \
+    --request "PUT" \ 
+    --data '{"status": true}'
+
+Eg- 
+curl http://localhost:8000/tasks/user/28 \
+    --include \
+    --header "user: diya" \
+    --request "PUT" \ 
+    --data '{"status": true}'
+
+
+    curl http://localhost:8000/tasks/user/1 \
+    --include \
+    --header "Content-Type: application/json" \
+    --header "User: diya" \
+    --request "GET" 
+    
+
+ 
